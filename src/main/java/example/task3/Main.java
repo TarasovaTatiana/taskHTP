@@ -10,14 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    private final static String pathToTests = "src/main/resources/files/task3/test.json";
+    private final static String pathToValues = "src/main/resources/files/task3/values.json";
+    private final static String pathToWrite = "src/main/resources/files/task3/report.json";
     private static Gson gson = new Gson();
 
     public static void main(String[] args) {
-        String pathToTests = "src/main/resources/files/task3/test.json";
-        String pathToValues = "src/main/resources/files/task3/values.json";
-        String pathToWrite = "src/main/resources/files/task3/report.json";
         fillResultsInTests(pathToTests, pathToValues, pathToWrite);
-
     }
 
     private static void fillResultsInTests(String testsJson, String valuesJson, String writeJson) {

@@ -1,12 +1,42 @@
 package example.task1;
 
+import example.task1.exception.BelowZeroException;
+
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
 public class CurcleArray {
+    private static final String ASK_NUMBER = "Напишите натуральное положительное число, которое задаст массив";
+    private static final String ASK_STEP = "Напишите натуральное положительное число, которое задаст шаг";
+    private static final String ERROR_MISMATCH = "Вы написали не натуральное число";
+    private static final String ERROR_BELOW_ZERO = "Вы написали неположительное натуральное число";
+
     public static void main(String[] args) {
-        List<Integer> answer = getIntegerList(5,4);
-        printAnswer(answer);
+        Scanner scanner = new Scanner(System.in);
+
+        int length = 0;
+        int step = 0;
+        try {
+            System.out.println(ASK_NUMBER);
+            length = scanner.nextInt();
+            if (length < 0){
+                throw new BelowZeroException();
+            }
+            System.out.println(ASK_STEP);
+            step = scanner.nextInt();
+            if (step < 0){
+                throw new BelowZeroException();
+            }
+            List<Integer> answer = getIntegerList(length,step);
+            printAnswer(answer);
+        } catch (InputMismatchException e){
+            System.out.println(ERROR_MISMATCH);
+        } catch (BelowZeroException e) {
+            System.out.println(ERROR_BELOW_ZERO);
+        }
+
     }
 
     private static void printAnswer(List<Integer> answer) {

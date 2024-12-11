@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    private final static String pathToNumbers = "src/main/resources/files/task4/numbers.txt";
+
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("src/main/resources/files/task4/numbers.txt");
+        File file = new File(pathToNumbers);
         Scanner scanner = new Scanner(file);
         List<Integer> integerList = new ArrayList<>();
         while (scanner.hasNext()){
